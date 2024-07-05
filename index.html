@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        header{
+            background-color: black;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            height: 70px;
+        }
+        .logo img{
+            height: 50px;
+        }
+        nav ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li {
+            position: relative;
+            margin: 0 15px;
+        }
+         nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px;
+         }
+
+         nav ul li a:hover, nav ul li .dropbtn:hover {
+            background-color: #575757;
+            border-radius: 5px;
+         }
+
+         .dropdown-menu{
+            display: none;
+            position:absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+         }
+
+         .dropdown-menu a{
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+         }
+
+         .dropdown-menu a:hover{
+            background-color: #f1f1f1;
+            border-radius: 10px;
+            color: rebeccapurple;
+         }
+         .dropdown:hover .dropdown-menu{
+            border-radius: 10px;
+            display: block;
+         }
+
+         .hero{
+            background: whitesmoke;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 70px;
+            color: Black;
+            text-shadow:2px 2px 4px rgba(0,0,0,0.5);
+         }
+
+         .hero-content{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+         }
+
+         .text-content{
+
+            max-width: 500px;
+         }
+
+         .hero h1 {
+            font-size: 3em;
+            margin: 0 0 20px;
+        }
+
+        .hero p {
+            font-size: 2.5em;
+            margin: 0 0 20px;
+        }
+
+        .hero button {
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .hero button:hover {
+            background-color: #ff3b2f;
+        }
+
+        .hero h2 {
+            padding-top: 30px;
+            font-size: 1.7em;
+            margin: 0 0 20px;
+        }
+
+        .hero-img {
+            max-width: auto;
+            height: 500px;
+            border-radius: 10px;
+        }
+
+        .services{
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            justify-content: space-between;
+            background-color: #974a4a;
+            text-align: justify;
+            
+        }
+
+        .service{
+            color: white;
+            padding: 50px;
+            max-width: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+        }
+
+        .service img{
+            background-color: whitesmoke;
+            margin: 5px;
+            border-radius: 10px;
+            max-width: 100px;
+            height: 100%;
+        }
+
+        .top-selling{
+            background-color:whitesmoke;
+            max-width: 100%;
+            height: 100vh;
+            padding: 20px 20px;
+            text-align: center;
+        }
+
+        .top-selling h2{
+            color: black;
+            font-size: 2em;
+            margin-bottom: 40px;
+        }
+
+        .product-container{
+            max-width: 100%;
+            height: 80vh;
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-around;
+            flex-direction: row;
+
+        }
+
+        .product{
+            max-width: 100%;
+            height: 80vh;
+            color: white;
+            border-radius: 10px;
+            background-color: #ff6f61;;
+            align-items:center;
+            text-align: center;
+        }
+
+        .product-img{
+            border-radius: 10px;
+            max-width: 100%;
+            height: 50vh;
+            margin-top: 30px;
+        }
+
+        .product h3{
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .product p{
+            font-size:1.2em;
+            margin-bottom:20px;
+        }
+
+        .product button{
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 10px 40px;
+            margin-bottom: 30px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .product button:hover{
+            background-color: #ff3b2f;
+        }
+
+        .footer{
+            background-color: #000;
+            max-width: 100%;
+            height: 40vh;
+        }
+
+        .footer-container{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 0 10px;
+        }
+
+        .link, .location{
+            width: 50%;
+            margin: 10px 0px;
+        }
+
+        .social-links{
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-direction: row;
+            color: white;
+        }
+        .social-links h2{
+            padding-left: 30px;
+            color: white;
+            text-align: center;
+            font-size: 1.8rem;
+            font-style: italic;
+        }
+
+        .social-links img{
+            width: 50px;
+            height: 50px;
+            padding-left: 10px;
+        }
+
+        .link H3, .location h3{
+            padding-left: 20px;
+            color: #fff;
+            font-size: 1.5em;
+        }
+
+        .link ul{
+            align-items: center;
+            list-style-type: none;
+            padding-left: 10px;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .link ul li a{
+            text-align: justify;
+            text-decoration: none;
+            padding: 10px;
+            color: #f1f1f1;
+        }
+
+        .location ul li{
+            display: flex;
+            flex-direction: row;
+            list-style-type:none;
+            padding: 10px;
+            color: #f1f1f1;
+        }
+
+        .link ul li a:hover{
+            text-decoration: overline;
+            color: #974a4a;
+        }
+
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="img/logo.png" alt="logo">
+        </div>
+        <nav>
+            <!--Dropdown menu-->
+            <ul>
+                <li class="dropdown">
+                    <a href="#menswear" class="dropbtn">MensWear</a>
+                    <div class="dropdown-menu">
+                        <a href="#shirts">Shirts</a>
+                        <a href="#pants">Pants</a>
+                        <a href="#jackets">Jackets</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#footwear" class="dropbtn">FootWear</a>
+                    <div class="dropdown-menu">
+                        <a href="#sneakers">Sneakers</a>
+                        <a href="#boots">Boots</a>
+                        <a href="#sandals">Sandals</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#accessories" class="dropbtn">Accessories</a>
+                    <div class="dropdown-menu">
+                        <a href="#watches">Watches</a>
+                        <a href="#belts">Belts</a>
+                        <a href="#hats">Hats</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#clearance" class="dropbtn">Clearance</a>
+                    <div class="dropdown-menu">
+                        <a href="#sale">Sale Items</a>
+                        <a href="#lastchance">Last Chance</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="text">
+                <h1>WELCOME TO SHOP</h1>
+                <h1>SALE UPTO 40%</h1>
+                <p>MENS FALL COLLECTION</p>
+                <button onclick="location.href='#shop'">Shop Now</button>
+                <h2>Sale Ends August 28, 2024 at 11.59 PM.</h2>
+            </div>
+            <img src="img/menswear.png" alt="menswear" class="hero-img">
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="service">
+            <img src="img/truck.png" alt="Shipping" class="service-icon">
+            <h3>Shipping</h3>
+            <p>Fast and reliable shipping worldwide.</p>
+        </div>
+        <div class="service">
+            <img src="img/price-tag.png" alt="Price-matching" class="service-icon">
+            <h3>Price Matching</h3>
+            <p>We match prices with compititors to offer you best deals.</p>
+        </div>
+        <div class="service">
+            <img src="img/location.png" alt="Store Pickup" class="service-icon">
+            <h3>Store Pickup</h3>
+            <p>Order online and pick up your products at our store.</p>
+        </div>
+    </section>
+
+    <section class="top-selling">
+        <h2>Top Selling</h2>
+        <div class="product-container">
+                <div class="product">
+                    <img src="img/men'swear.jpeg" alt="Men's Suit" class="product-img">
+                    <h3>Men's Suit</h3>
+                    <p>Elegant and stylish men's suit perfect for any occasion.</p>
+                    <button onclick="location.href='#shop-mens-suit'">Shop Now</button>
+                </div>
+                <div class="product">
+                    <img src="img/wrist watch.png" alt="watch" class="product-img">
+                    <h3>Wrist Watch</h3>
+                    <p>Stylish and durable wrist watch to complement your style.</p>
+                    <button onclick="location.href='#shop-watch'">Shop Now</button>
+                </div>
+        </div>
+    </section>
+
+    <section class="footer">
+        <div class="footer-container">
+            <div class="link">
+                <H3>Social Links</H3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/" target="_blank"><img src="img/facebook.png" alt="facebook"></a>
+                    <a href="https://www.instagram.com/" target="_blank"><img src="img/instagram.png" alt="instagram"></a>
+                    <a href="https://www.twitter.com/" target="_blank"><img src="img/twitter.png" alt="twitter"></a>
+                    <h2>#ARTIST</h2>
+                </div>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about-us">About Us</a></li>
+                    <li><a href="#customer-service">Customer Service</a></li>
+                    <li><a href="#gift-card">Gift Card</a></li>
+                    <li><a href="#contact-us">Contact Us</a></li>
+                    <li><a href="#return-policy">Return Policy</a></li
+                </ul>
+            </div>
+            <div class="location">
+                <h3>Store Location</h3>
+                <ul>
+                    <li>New York</li>
+                    <li>Los Angeles</li>
+                    <li>Chicago</li>
+                    <li>San Francisco</li>
+                    <li>Miami</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){});
+    </script>
+</body>
+</html>
