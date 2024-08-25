@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARTIST-Checkout</title>
+    <style>
+
+.navbar {
+            background-color: black;
+            border-bottom: 1px solid #ddd;
+
+        }
+
+        .navbar-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar-logo img {
+            height: 100px;
+        }
+
+        .navbar-search input {
+            padding: 5px;
+            font-size: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 600px;
+        }
+
+.navbar-buttons {
+    display: flex;
+    margin-right: 20px;
+    gap: 10px;
+}
+
+.nav-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff4500;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-btn:hover {
+    background-color: whitesmoke;
+    color: #000;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .navbar-search {
+        margin: 10px 0;
+    }
+}
+
+/* Rest of your CSS */
+
+.checkout-section {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.checkout-section h1, .checkout-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.checkout-items {
+    margin-bottom: 20px;
+}
+
+.checkout-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.checkout-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.checkout-item-details {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.checkout-item-details h3 {
+    font-size: 1em;
+    margin: 0;
+}
+
+.checkout-item-details p {
+    margin: 5px 0;
+}
+
+.checkout-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.checkout-total p {
+    font-size: 1.2em;
+    margin: 0;
+}
+
+#checkout-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#checkout-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#checkout-form input {
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#checkout-form button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#checkout-form button:hover {
+    background-color: #45a049;
+}
+
+
+
+
+.footer{
+            background-color: #000;
+            max-width: 100%;
+            height: 40vh;
+        }
+
+        .footer-container{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 0 10px;
+        }
+
+        .link, .location{
+            width: 50%;
+            margin: 10px 0px;
+        }
+
+        .social-links{
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-direction: row;
+            color: white;
+        }
+        .social-links h2{
+            padding-left: 30px;
+            color: white;
+            text-align: center;
+            font-size: 1.8rem;
+            font-style: italic;
+        }
+
+        .social-links img{
+            width: 50px;
+            height: 50px;
+            padding-left: 10px;
+        }
+
+        .link H3, .location h3{
+            padding-left: 20px;
+            color: #fff;
+            font-size: 1.5em;
+        }
+
+        .link ul{
+            align-items: center;
+            list-style-type: none;
+            padding-left: 10px;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .link ul li a{
+            text-align: justify;
+            text-decoration: none;
+            padding: 10px;
+            color: #f1f1f1;
+        }
+
+        .location ul li{
+            display: flex;
+            flex-direction: row;
+            list-style-type:none;
+            padding: 10px;
+            color: #f1f1f1;
+        }
+
+        .link ul li a:hover{
+            text-decoration: overline;
+            color: #974a4a;
+        }
+
+
+    </style>
+
+</head>
+<body>
+
+    <!--Header Section-->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <a href="home.html">
+                    <img src="img/Home/logo.png" alt="Logo">
+                </a>
+
+            </div>
+            <div class="navbar-search">
+                <input type="text" name="search" placeholder="Search...">
+            </div>
+            <div class="navbar-buttons">
+                <a href="men-fashion.html" class="nav-btn">Men's Fashion</a>
+                <a href="women-fashion.html" class="nav-btn">Women's Fashion</a>
+                <a href="new-arrival.html" class="nav-btn">New Arrivals</a>
+                <button class="nav-btn" id="cart-btn">Cart</button>
+            </div>
+        </div>
+    </nav>
+
+    <!--Checkout Section-->
+
+    <section class="checkout-section">
+        <h1>Checkout</h1>
+        <div class="checkout-items" id="checkout-items">
+
+        </div>
+        <div class="checkouot-total">
+            <p>Total: <span id="checkout-total-price">$0.00</span>
+            </p>
+        </div>
+
+        <form id="checkout-form">
+            <h2>Shipping Information</h2>
+            <label for="name" id="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+            
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required>
+
+            <label for="zip">Zip:</label>
+            <input type="text" id="zip" name="zip" required>
+
+
+            <h2>Payment Informations</h2>
+            
+            <label for="card-number">Card Number:</label>
+            <input type="text" id="card-number" name="card-number" required>
+            
+            <label for="card-expiry">Expiry Date:</label>
+            <input type="text" id="card-expiry" name="card-expiry" required>
+            
+            <label for="card-cvv">CVV:</label>
+            <input type="text" id="card-cvv" name="card-cvv" required>
+
+            <button type="submit">Complete Purchase</button>
+
+        </form>
+    </section>
+
+     <!--Footer Section-->
+     <section class="footer">
+        <div class="footer-container">
+            <div class="link">
+                <H3>Social Links</H3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/" target="_blank"><img src="img/landing page/facebook.png" alt="facebook"></a>
+                    <a href="https://www.instagram.com/" target="_blank"><img src="img/landing page/instagram.png" alt="instagram"></a>
+                    <a href="https://www.twitter.com/" target="_blank"><img src="img/landing page/twitter.png" alt="twitter"></a>
+                    <h2>#ARTIST</h2>
+                </div>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="#about-us">About Us</a></li>
+                    <li><a href="#customer-service">Customer Service</a></li>
+                    <li><a href="#gift-card">Gift Card</a></li>
+                    <li><a href="#contact-us">Contact Us</a></li>
+                    <li><a href="#return-policy">Return Policy</a></li
+                </ul>
+            </div>
+            <div class="location">
+                <h3>Store Location</h3>
+                <ul>
+                    <li>New York</li>
+                    <li>Los Angeles</li>
+                    <li>Chicago</li>
+                    <li>San Francisco</li>
+                    <li>Miami</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    const checkoutItemsContainer = document.getElementById('checkout-items');
+    const checkoutTotalPrice = document.getElementById('checkout-total-price');
+    const checkoutForm = document.getElementById('checkout-form');
+
+    // Load cart from localStorage
+    loadCart();
+
+    checkoutForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Purchase completed successfully!');
+        localStorage.removeItem('cartItems');
+        window.location.href = 'home.html'; // Redirect to home or thank you page
+    });
+
+    function loadCart() {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        let totalPrice = 0;
+
+        cartItems.forEach(item => {
+            const checkoutItemElement = document.createElement('div');
+            checkoutItemElement.classList.add('checkout-item');
+            checkoutItemElement.innerHTML = `
+                <img src="${item.imageSrc}" alt="${item.name}">
+                <div class="checkout-item-details">
+                    <h3>${item.name}</h3>
+                    <p>${item.price}</p>
+                </div>
+            `;
+            checkoutItemsContainer.appendChild(checkoutItemElement);
+
+            // Calculate total price
+            totalPrice += parseFloat(item.price.replace('$', ''));
+        });
+
+        checkoutTotalPrice.innerText = `$${totalPrice.toFixed(2)}`;
+    }
+});
+
+    </script>
+
+
+</body>
+</html>

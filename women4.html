@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARTIST-Product-1</title>
+    <style>
+        .navbar {
+            background-color: black;
+            border-bottom: 1px solid #ddd;
+
+        }
+
+        .navbar-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar-logo img {
+            height: 100px;
+        }
+
+        .navbar-search input {
+    padding: 5.5px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    min-width: 600px;
+        }
+
+.navbar-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+    gap: 10px;
+}
+
+
+        .nav-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff4500;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: whitesmoke;
+            color: #000;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+        .navbar-container {
+            flex-direction: column;
+            align-items: center;
+        }
+        .navbar-search {
+            margin: 10px 0;
+        }
+        }
+
+        .product-detail {
+            margin-top: 40px;
+            margin-left: 20%;
+            margin-bottom: 40px;
+            margin-right: 20%;
+            max-width: 1000px;
+            height: auto;
+            padding: 20px 20px;
+            background-color: whitesmoke;
+            border:1px solid black;
+            box-shadow: 10 20px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .container{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 20px;
+            max-width: auto;
+        }
+
+        .image{
+            border: 2px solid black;
+            flex: 1;
+            max-width: 50%;
+            max-height: 400px;
+        }
+
+        .image img{
+            width: 100%;
+            height: 100%;
+        }
+
+        .info{
+            flex: 1;
+            max-width: 50%;
+            max-height: auto;
+
+        }
+
+        .info h1{
+            font-size: 2em;
+            margin-top: 10px;
+        }
+
+        .info .price{
+            font-size: 1.2em;
+            color: #ff4500;
+            margin-top: 10px;
+        }
+
+        .info .description{
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        .info label{
+            font-size: 1.2em;
+            margin-bottom:10px;
+            display: block;
+        }
+
+        .info select{
+            font-size: 1em;
+            width: 100%;
+            padding: 10px;
+            margin-bottom:20px;
+            cursor: pointer;
+        }
+
+        .buttons{
+            display: flex;
+            gap: 10px;
+            max-width: 100%;
+            flex-direction: column;
+        }
+
+        .buttons button{
+            padding: 10px 20px;
+            font-size: 1em;
+            border: 1px solid black;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-to-cart{
+            background-color: #ff4500;
+            color: white;
+        }
+
+        .add-to-cart:hover{
+            background-color: whitesmoke;
+            color:black;
+        }
+
+        .buy-now{
+            background-color: #ff4500;
+            color: white;
+        }
+
+        .buy-now:hover{
+            background-color: whitesmoke;
+            color:black;
+        }
+
+        .cart-sidebar{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            position:fixed;
+            top:0;
+            right:0;
+            width: 300px;
+            height: 100%;
+            background-color: #fff;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+            padding: 20px;
+            overflow-y: auto;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            z-index:1000;
+        }
+
+        .cart-sidebar.open{
+            transform: translateX(0);
+        }
+
+        .close-cart-btn {
+            background-color: transparent;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #ff4500;
+        }
+        .close-cart-btn:hover {
+            color: #000000;
+        }
+        
+        .cart-sidebar h2{
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .cart-items{
+            margin-bottom:20px;
+        }
+
+        .cart-item{
+            display: flex;
+            margin-bottom: 10px;
+            justify-content: space-between;
+        }
+
+        .cart-item img{
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .cart-item-details{
+            flex: 1;
+            margin-left: 10px;
+        }
+
+        .cart-item-details p{
+            margin: 5px 0;
+        }
+
+        .cart-item-details h3{
+            font-size: 1em;
+            margin: 0;
+        }
+
+        .cart-item .remove-btn {
+            background-color: transparent;
+            border: none;
+            color: #ff4500;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+        .cart-item .remove-btn:hover {
+            color: #e63900;
+        }
+
+        .cart-btn{
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #ff4500;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cart-btn a{   
+            text-decoration: none;
+            color: white;
+        }
+
+        .cart-btn a:hover{
+            background-color: whitesmoke;
+            color: #000;
+
+        }
+
+        .cart-btn:hover{
+            background-color: whitesmoke;
+            color: #000;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .product-detail-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+
+
+
+
+
+
+
+        .footer{
+            background-color: #000;
+            max-width: 100%;
+            height: 40vh;
+        }
+
+        .footer-container{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 0 10px;
+        }
+
+        .link, .location{
+            width: 50%;
+            margin: 10px 0px;
+        }
+
+        .social-links{
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-direction: row;
+            color: white;
+        }
+        .social-links h2{
+            padding-left: 30px;
+            color: white;
+            text-align: center;
+            font-size: 1.8rem;
+            font-style: italic;
+        }
+
+        .social-links img{
+            width: 50px;
+            height: 50px;
+            padding-left: 10px;
+        }
+
+        .link H3, .location h3{
+            padding-left: 20px;
+            color: #fff;
+            font-size: 1.5em;
+        }
+
+        .link ul{
+            align-items: center;
+            list-style-type: none;
+            padding-left: 10px;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .link ul li a{
+            text-align: justify;
+            text-decoration: none;
+            padding: 10px;
+            color: #f1f1f1;
+        }
+
+        .location ul li{
+            display: flex;
+            flex-direction: row;
+            list-style-type:none;
+            padding: 10px;
+            color: #f1f1f1;
+        }
+
+        .link ul li a:hover{
+            text-decoration: overline;
+            color: #974a4a;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <img src="img/Men's Fashion/logo.png" alt="Logo">
+            </div>
+            <div class="navbar-search">
+                <input type="text" name="search" placeholder="Search...">
+            </div>
+            <div class="navbar-buttons">
+                <a href="men-fashion.html" class="nav-btn">Mens Fashion</a>
+                <a href="women-fashion.html" class="nav-btn">Womens Fashion</a>
+                <a href="new-arrival.html" class="nav-btn">New Arrivals</a>
+                <button class="cart-btn" id="cart-btn">Cart</button>
+            </div>
+        </div>
+    </nav>
+    
+    <!--Product Details-->
+    <section class="product-detail">
+        <div class="container">
+            <div class="image">
+                <img src="img/Women's Fashion/women4.jpg" alt="Product Image">
+            </div>
+            <div class="info">
+                <h1>I am Product</h1>
+                <p class="price">$29.99</p>
+                <p class="description">Details Lorem ipsum dolor sit amet consec
+                    tetur adipisicing elit. Deleniti neque, possimus nulla t
+                    empora autem nemo minus hic enim officia iure ali
+                    quam itaque est totam blanditiis animi incidunt volupta
+                    te eaque reprehenderit.</p>
+                    <label for="size">Size:</label>
+                <select name="Size" id="size">
+                    <option value="select Size">Select Size</option>
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="large">Large</option>
+                    <option value="xl">XL</option>
+                </select>
+
+                <div class="buttons">
+                    <button class="add-to-cart">Add To Cart</button>
+                    <button class="buy-now">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Footer Section-->
+    <section class="footer">
+        <div class="footer-container">
+            <div class="link">
+                <H3>Social Links</H3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/" target="_blank"><img src="img/Men's Fashion/facebook.png" alt="facebook"></a>
+                    <a href="https://www.instagram.com/" target="_blank"><img src="img/Men's Fashion/instagram.png" alt="instagram"></a>
+                    <a href="https://www.twitter.com/" target="_blank"><img src="img/Men's Fashion/twitter.png" alt="twitter"></a>
+                    <h2>#ARTIST</h2>
+                </div>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="#about-us">About Us</a></li>
+                    <li><a href="#customer-service">Customer Service</a></li>
+                    <li><a href="#gift-card">Gift Card</a></li>
+                    <li><a href="#contact-us">Contact Us</a></li>
+                    <li><a href="#return-policy">Return Policy</a></li
+                </ul>
+            </div>
+            <div class="location">
+                <h3>Store Location</h3>
+                <ul>
+                    <li>New York</li>
+                    <li>Los Angeles</li>
+                    <li>Chicago</li>
+                    <li>San Francisco</li>
+                    <li>Miami</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+    <!--Cart Sidebar-->
+    <aside class="cart-sidebar" id="cart-sidebar">
+        <button class="close-cart-btn" id="close-cart-btn">&rarr;</button>
+        <h2>Cart</h2>
+        <div class="cart-items" id="cart-items">
+
+        </div>
+
+        <button class="cart-btn"><a href="cart.html">View Cart</a></button>
+    </aside>
+
+    <script>
+   document.addEventListener('DOMContentLoaded', () => {
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    const cartSidebar = document.getElementById('cart-sidebar');
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartBtn = document.getElementById('cart-btn');
+    const closeCartBtn = document.getElementById('close-cart-btn');
+
+    // Load cart from localStorage
+    loadCart();
+
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const productName = document.querySelector('.info h1').innerText;
+            const productPrice = document.querySelector('.info .price').innerText;
+            const productImageSrc = document.querySelector('.image img').src;
+            addToCart(productName, productPrice, productImageSrc);
+            openCartSidebar();
+        });
+    });
+
+    cartBtn.addEventListener('click', () => {
+        toggleCartSidebar();
+    });
+
+    closeCartBtn.addEventListener('click', () => {
+        closeCartSidebar();
+    });
+
+    function addToCart(name, price, imageSrc) {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+        const cartItem = {
+            name,
+            price,
+            imageSrc
+        };
+
+        cartItems.push(cartItem);
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        renderCartItems();
+    }
+
+    function loadCart() {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        cartItems.forEach(item => {
+            const cartItemElement = document.createElement('div');
+            cartItemElement.classList.add('cart-item');
+            cartItemElement.innerHTML = `
+                <img src="${item.imageSrc}" alt="${item.name}">
+                <div class="cart-item-details">
+                    <h3>${item.name}</h3>
+                    <p>${item.price}</p>
+                </div>
+                <button class="remove-btn">&times;</button>
+            `;
+            cartItemsContainer.appendChild(cartItemElement);
+
+            cartItemElement.querySelector('.remove-btn').addEventListener('click', () => {
+                removeFromCart(item);
+            });
+        });
+    }
+
+    function renderCartItems() {
+        cartItemsContainer.innerHTML = '';
+        loadCart();
+    }
+
+    function removeFromCart(itemToRemove) {
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        cartItems = cartItems.filter(item => item.name !== itemToRemove.name || item.imageSrc !== itemToRemove.imageSrc);
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        renderCartItems();
+    }
+
+    function openCartSidebar() {
+        cartSidebar.classList.add('open');
+    }
+
+    function closeCartSidebar() {
+        cartSidebar.classList.remove('open');
+    }
+
+    function toggleCartSidebar() {
+        cartSidebar.classList.toggle('open');
+    }
+});
+
+
+
+    </script>
+</body>
+</html>

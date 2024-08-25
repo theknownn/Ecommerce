@@ -181,6 +181,13 @@
 
         }
 
+        .product-grid{
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            gap: 50px;
+        }
+
         .product{
             max-width: 100%;
             height: 80vh;
@@ -310,7 +317,7 @@
 <body>
     <header>
         <div class="logo">
-            <img src="img/logo.png" alt="logo">
+            <img src="img/landing page/logo.png" alt="logo">
         </div>
         <nav>
             <!--Dropdown menu-->
@@ -346,6 +353,9 @@
                         <a href="#lastchance">Last Chance</a>
                     </div>
                 </li>
+                <li class="dropdown">
+                    <a href="home.html" class="dropbtn" onclick="show">Visit Now</a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -358,23 +368,26 @@
                 <button onclick="location.href='#shop'">Shop Now</button>
                 <h2>Sale Ends August 28, 2024 at 11.59 PM.</h2>
             </div>
-            <img src="img/menswear.png" alt="menswear" class="hero-img">
+            <img src="img/landing page/menswear.png" alt="menswear" class="hero-img">
+            
+
         </div>
+
     </section>
 
     <section class="services">
         <div class="service">
-            <img src="img/truck.png" alt="Shipping" class="service-icon">
+            <img src="img/landing page/truck.png" alt="Shipping" class="service-icon">
             <h3>Shipping</h3>
             <p>Fast and reliable shipping worldwide.</p>
         </div>
         <div class="service">
-            <img src="img/price-tag.png" alt="Price-matching" class="service-icon">
+            <img src="img/landing page/price-tag.png" alt="Price-matching" class="service-icon">
             <h3>Price Matching</h3>
             <p>We match prices with compititors to offer you best deals.</p>
         </div>
         <div class="service">
-            <img src="img/location.png" alt="Store Pickup" class="service-icon">
+            <img src="img/landing page/location.png" alt="Store Pickup" class="service-icon">
             <h3>Store Pickup</h3>
             <p>Order online and pick up your products at our store.</p>
         </div>
@@ -383,18 +396,21 @@
     <section class="top-selling">
         <h2>Top Selling</h2>
         <div class="product-container">
+            <div class="product-grid">
                 <div class="product">
-                    <img src="img/men'swear.jpeg" alt="Men's Suit" class="product-img">
-                    <h3>Men's Suit</h3>
-                    <p>Elegant and stylish men's suit perfect for any occasion.</p>
-                    <button onclick="location.href='#shop-mens-suit'">Shop Now</button>
+                    <img src="img/Men's Fashion/Product2.jpg" alt="Men's Fashion" class="product-img">
+                    <h3>Men's Fashion </h3>
+                    <p>Elegant and stylish men's outfit perfect for any occasion.</p>
+                    <button onclick="location.href='men-fashion.html'">Shop Now</button>
                 </div>
                 <div class="product">
-                    <img src="img/wrist watch.png" alt="watch" class="product-img">
-                    <h3>Wrist Watch</h3>
-                    <p>Stylish and durable wrist watch to complement your style.</p>
-                    <button onclick="location.href='#shop-watch'">Shop Now</button>
+                    <img src="img/Women's Fashion/women1.jpg" alt="Women's Fashion" class="product-img">
+                    <h3>Women's Fashion</h3>
+                    <p>Elegant and stylish women's outfit for any occasion.</p>
+                    <button onclick="location.href='women-fashion.html'">Shop Now</button>
                 </div>
+            </div>
+                
         </div>
     </section>
 
@@ -403,13 +419,13 @@
             <div class="link">
                 <H3>Social Links</H3>
                 <div class="social-links">
-                    <a href="https://www.facebook.com/" target="_blank"><img src="img/facebook.png" alt="facebook"></a>
-                    <a href="https://www.instagram.com/" target="_blank"><img src="img/instagram.png" alt="instagram"></a>
-                    <a href="https://www.twitter.com/" target="_blank"><img src="img/twitter.png" alt="twitter"></a>
+                    <a href="https://www.facebook.com/" target="_blank"><img src="img/landing page/facebook.png" alt="facebook"></a>
+                    <a href="https://www.instagram.com/" target="_blank"><img src="img/landing page/instagram.png" alt="instagram"></a>
+                    <a href="https://www.twitter.com/" target="_blank"><img src="img/landing page/twitter.png" alt="twitter"></a>
                     <h2>#ARTIST</h2>
                 </div>
                 <ul>
-                    <li><a href="#home">Home</a></li>
+                    <li><a href="home.html">Home</a></li>
                     <li><a href="#about-us">About Us</a></li>
                     <li><a href="#customer-service">Customer Service</a></li>
                     <li><a href="#gift-card">Gift Card</a></li>

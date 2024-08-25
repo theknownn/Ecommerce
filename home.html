@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARTIST-Home</title>
+    <style>
+
+        body{
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: black;
+            border-bottom: 1px solid #ddd;
+
+        }
+
+        .navbar-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar-logo img {
+            height: 100px;
+        }
+
+        .navbar-search input {
+            padding: 5px;
+            font-size: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 600px;
+        }
+
+.navbar-buttons {
+    display: flex;
+    margin-right: 20px;
+    gap: 10px;
+}
+
+.nav-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff4500;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-btn:hover {
+    background-color: whitesmoke;
+    color: #000;
+}
+
+.cart-btn{
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #ff4500;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .cart-btn:hover{
+            background-color: whitesmoke;
+            color: #000;
+        }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .navbar-search {
+        margin: 10px 0;
+    }
+}
+        .offers{
+            text-align: center;
+            padding: 20px 20px;
+            background-color: whitesmoke;
+        }
+
+        .offers h2{
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+
+        /* Slideshow container */
+.slideshow-container {
+    text-align: center;
+  max-width: 100%;
+  position: relative;
+  margin: auto;
+  margin: 10px;
+}
+
+.slideshow-container h2{
+    font-size: 2em;
+    margin-bottom: 10px;
+    text-decoration: underline slategrey;
+}
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+.mySlides img{
+    margin-top: 50px;
+    width: 100%;
+    height: 100%;
+}
+
+/* Next & previous buttons */
+.prev {
+    left: 0;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  -webkit-user-select: auto;
+  user-select: none;
+}
+
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  -webkit-user-select: auto;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+  margin-bottom: 30px;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+
+.image-links{
+    background-color: #fff;
+    margin-top: 30px;
+    padding: 10px 20px;
+    max-width: 100%;
+}
+
+.image-links a{
+    text-decoration: none;
+}
+
+.image-links h2{
+    text-align: center;
+    font-size: 2em;
+}
+.image-links p{
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 100;
+    background-color: #ff4500;
+    padding: 20px;
+
+}
+
+.row{
+    margin: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.container{
+    padding: 10px;
+    position: relative;
+    justify-content: space-between;
+    width: 30%;
+    border: solid black 2px;
+    border-radius: 2px;
+    margin-bottom: 10px;
+}
+.container img{
+    border-radius: 5px;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.container:hover img {
+    transform: scale(1.05);
+}
+
+.overlay {
+    position: cover;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.container:hover .overlay {
+    opacity: 1;
+}
+
+        .new-drops{
+            background-color: #fff;
+            margin-top: 30px;
+            padding: 10px 20px;
+            max-width: 100%;
+            margin-bottom: 50px;
+        }
+
+        .new-drops h2{
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .new-drops h1{
+            padding: 10px;
+            background-color: #ff4500;
+            font-weight: 100;
+            text-align: center;
+            font-size: 1.5em;
+        }
+
+        .product-grid{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .product-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            width: 200px;
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product-item:hover{
+            transform: translateY(-5px);
+        }
+
+        .product-item img{
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .info{
+            text-align: justify;
+            margin-top: 10px;
+
+        }
+
+        .info h3{
+            font-size: 1.5em;
+            font-weight: 100;
+        }
+
+        .info p{
+            margin-top: 10px;
+            font-size: 1em;
+        }
+
+        .shop-new {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+.shop-new-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff4500;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.shop-new-btn:hover {
+    background-color: #e63900;
+}
+
+
+        .sale{
+            background-color: #fff;
+            padding: 40px 20px;
+        }
+
+        .content{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            flex-wrap: unwrap;
+            align-items: center;
+        }
+
+        .sale-text{
+            text-align: center;
+            flex:1;
+            min-width: 300px;
+            margin-right: 20px;
+            animation: slide-in-up 3s forwards;
+        }
+
+        .sale-text img{
+            width: 100px;
+            border-radius: 10px;
+            height:100px;
+        }
+
+        .sale-text h2{
+            font-size: 2.5em;
+            font-weight: 100;
+            margin-bottom: 10px;
+        }
+
+        .sale-text p{
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .sale-text h1{
+            font-size: 2.5em;
+            font-weight: 100;
+            margin-bottom: 10px;
+        }
+        .sale-image{
+            flex:1;
+            min-width: 300px;
+        }
+
+        .sale-image img{
+            width: 100%;
+            height:700px;
+            border-radius: 10px;
+        }
+
+        @keyframes slide-in-up { from{
+            transform: translateY(100%);
+            opacity: 0;
+        }
+        to{
+            transform: translateY(0%);
+            opacity: 1;
+        }}
+
+        @media (max-width: 768px) {
+    .content {
+        flex-direction: row;
+        text-align: center;
+    }
+    .sale-text {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
+
+
+
+
+        .footer{
+            background-color: #000;
+            max-width: 100%;
+            height: 40vh;
+        }
+
+        .footer-container{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 0 10px;
+        }
+
+        .link, .location{
+            width: 50%;
+            margin: 10px 0px;
+        }
+
+        .social-links{
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-direction: row;
+            color: white;
+        }
+        .social-links h2{
+            padding-left: 30px;
+            color: white;
+            text-align: center;
+            font-size: 1.8rem;
+            font-style: italic;
+        }
+
+        .social-links img{
+            width: 50px;
+            height: 50px;
+            padding-left: 10px;
+        }
+
+        .link H3, .location h3{
+            padding-left: 20px;
+            color: #fff;
+            font-size: 1.5em;
+        }
+
+        .link ul{
+            align-items: center;
+            list-style-type: none;
+            padding-left: 10px;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .link ul li a{
+            text-align: justify;
+            text-decoration: none;
+            padding: 10px;
+            color: #f1f1f1;
+        }
+
+        .location ul li{
+            display: flex;
+            flex-direction: row;
+            list-style-type:none;
+            padding: 10px;
+            color: #f1f1f1;
+        }
+
+        .link ul li a:hover{
+            text-decoration: overline;
+            color: #974a4a;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <!--Header Section-->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <img src="img/Home/logo.png" alt="Logo">
+            </div>
+            <div class="navbar-search">
+                <input type="text" name="search" placeholder="Search...">
+            </div>
+            <div class="navbar-buttons">
+                <a href="men-fashion.html" class="nav-btn">Mens Fashion</a>
+                <a href="women-fashion.html" class="nav-btn">Womens Fashion</a>
+                <a href="new-arrival.html" class="nav-btn">New Arrivals</a>
+                <button class="cart-btn" id="cart-btn">Cart</button>
+            </div>
+        </div>
+    </nav>
+    <!--Offers Section-->
+        <!-- Slideshow container -->
+<div class="slideshow-container">
+    <h2>Exciting Offers</h2>
+
+  <!-- Full-width images with number and caption text -->
+  <div class="mySlides fade">
+    <div class="numbertext">1 / 3</div>
+    <img src="img/Home/offer-1.jpg" width:100%>
+
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">2 / 3</div>
+    <img src="img/Home/offer-2.png" width:100%>
+
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">3 / 3</div>
+    <img src="img/Home/offer-3.jpg" width:100%>
+
+  </div>
+  <div class="mySlides fade">
+    <div class="numbertext">4 / 4</div>
+    <img src="img/Home/offer-4.jpg" width:100%>
+  </div>
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+</div>>
+
+
+<section class="image-links">
+    <h2>ARTIST SHOP</h2>
+    <p>There's One For Everyone.</p>
+    <div class="row">
+        <div class="container">
+            <a href="women-fashion.html">
+            <img src="img/New Arrivals/women1.jpg" alt="Women's Fashion">
+            <div class="overlay">Women's Fashion</div>
+            </a>
+        </div>
+    
+        <div class="container">
+            <a href="new-arrival.html">
+            <img src="img/New Arrivals/new.jpg" alt="New Arrivals">
+            <div class="overlay">New Arrivals</div>
+            </a>
+        </div>
+    
+        <div class="container">
+            <a href="men-fashion.html">
+            <img src="img/New Arrivals/Product1.jpg" alt="Men's Fashion">
+            <div class="overlay">Men's Fashion</div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="new-drops">
+    <h2>NEW DROPS</h2>
+    <h1>Check Out Our Latest Collections and get more gifts.</h1>
+    <div class="product-grid">
+        <div class="product-item">
+            <a href="product1.html">
+                <img src="img/New Arrivals/Product1.jpg" alt="Product1">
+            </a>
+            <div class="info">
+                <h3>I'm a Product</h3>
+                <p>Price: $20.59</p>
+            </div>
+        </div>
+        <div class="product-item">
+            <a href="product2.html">
+                <img src="img/New Arrivals/Product2.jpg" alt="Product2">
+            </a>
+            
+            <div class="info">
+                <h3>I'm a Product</h3>
+                <p>Price: $35.59</p>
+            </div>
+        </div>
+        <div class="product-item">
+            <a href="product3.html">
+                <img src="img/New Arrivals/Product3.jpg" alt="Product3">
+            </a>
+            
+            <div class="info">
+                <h3>I'm a Product</h3>
+                <p>Price: $16.99</p>
+            </div>
+        </div>
+        <div class="product-item">
+            <a href="product4.html">
+                <img src="img/New Arrivals/Product4.jpg" alt="Product4">
+            </a>
+
+            <div class="info">
+                <h3>I'm a Product</h3>
+                <p>Price: $27.99</p>
+            </div>
+        </div>
+        <div class="product-item">
+            <a href="product5.html">
+                <img src="img/New Arrivals/Product5.jpg" alt="Product5">
+            </a>
+            
+            <div class="info">
+                <h3>I'm a Product</h3>
+                <p>Price: $45.59</p>
+            </div>
+        </div>
+        <div class="product-item">
+            <a href="product6.html">
+                <img src="img/New Arrivals/Product6.jpg" alt="Product6">
+            </a>
+           
+            <div class="info">
+                <h3>I'm a Product</h3>
+                <p>Price: $54.59</p>
+            </div>
+        </div>
+        <div class="product-item">
+            <a href="product7.html">
+                <img src="img/New Arrivals/Product7.jpg" alt="Product7">
+            </a>
+            
+            <div class="info">
+                <h3>I'm a Product</h3>
+                <p>Price: $18.59</p>
+            </div>
+        </div>
+        <div class="product-item">
+            <a href="product8.html">
+                <img src="img/New Arrivals/Product8.jpg" alt="Product8">
+            </a>
+           
+            <div class="info">
+                <h3>I'm a Product</h3>
+                <p>Price: $45.59</p>
+            </div>
+        </div>
+        <div class="product-item">
+            <img src="img/New Arrivals/women1.jpg" alt="women1">
+            <div class="info">
+                <h3>I'm a Product</h3>
+                <p>Price: $40.99</p>
+            </div>
+        </div>
+        <div class="product-item">
+            <img src="img/New Arrivals/women2.jpg" alt="women2">
+            <div class="info">
+                <h3>I'm a Product</h3>
+                <p>Price: $55.59</p>
+            </div>
+        </div>
+        <div class="product-item">
+            <img src="img/New Arrivals/women3.jpg" alt="women3">
+            <div class="info">
+                <h3>I'm a Product</h3>
+                <p>Price: $29.67</p>
+            </div>
+        </div>
+        <div class="product-item">
+            <img src="img/New Arrivals/women4.jpg" alt="women4">
+            <div class="info">
+                <h3>I'm a Product</h3>
+                <p>Price: $35.59</p>
+            </div>
+        </div>
+        <div class="product-item">
+            <img src="img/New Arrivals/women5.jpg" alt="women5">
+            <div class="info">
+                <h3>I'm a Product</h3>
+                <p>Price: $20.59</p>
+            </div>
+        </div>
+        <div class="product-item">
+            <img src="img/New Arrivals/women6.jpg" alt="women6">
+            <div class="info">
+                <h3>I'm a Product</h3>
+                <p>Price: $13.59</p>
+            </div>
+        </div>
+        <div class="product-item">
+            <img src="img/New Arrivals/women7.jpg" alt="women7">
+            <div class="info">
+                <h3>I'm a Product</h3>
+                <p>Price: $54.59</p>
+            </div>
+        </div>
+        <div class="product-item">
+            <img src="img/New Arrivals/women8.jpg" alt="women8">
+            <div class="info">
+                <h3>I'm a Product</h3>
+                <p>Price: $44.59</p>
+            </div>
+        </div>
+    </div>
+    <div class="shop-new">
+        <a href="new-arrival.html" class="shop-new-btn">Shop New</a>
+    </div>
+</section>
+
+
+<section class="sale">
+    <div class="content">
+        <div class="sale-text">
+            <img src="img/Home/thunder.png" alt="Sale">
+            <h2>SALE IS ON!</h2>
+            <p>Get Upto 50% off on selected items!</p>
+            <h1>Hurry, Limited time offer.</h1>
+        </div>
+        <div class="sale-image">
+            <img src="img/Home/sale.jpg" alt="Sale1">
+        </div>
+    </div>
+</section>
+
+
+
+    <!--Footer Section-->
+    <section class="footer">
+        <div class="footer-container">
+            <div class="link">
+                <H3>Social Links</H3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/" target="_blank"><img src="img/landing page/facebook.png" alt="facebook"></a>
+                    <a href="https://www.instagram.com/" target="_blank"><img src="img/landing page/instagram.png" alt="instagram"></a>
+                    <a href="https://www.twitter.com/" target="_blank"><img src="img/landing page/twitter.png" alt="twitter"></a>
+                    <h2>#ARTIST</h2>
+                </div>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="#about-us">About Us</a></li>
+                    <li><a href="#customer-service">Customer Service</a></li>
+                    <li><a href="#gift-card">Gift Card</a></li>
+                    <li><a href="#contact-us">Contact Us</a></li>
+                    <li><a href="#return-policy">Return Policy</a></li
+                </ul>
+            </div>
+            <div class="location">
+                <h3>Store Location</h3>
+                <ul>
+                    <li>New York</li>
+                    <li>Los Angeles</li>
+                    <li>Chicago</li>
+                    <li>San Francisco</li>
+                    <li>Miami</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    
+         
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+        
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+        
+        function showSlides(n) {
+          let i;
+          let slides = document.getElementsByClassName("mySlides");
+          let dots = document.getElementsByClassName("dot");
+          if (n > slides.length) {slideIndex = 1}    
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+          }
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+        }
+        </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+     const addToCartButtons = document.querySelectorAll('.add-to-cart');
+     const cartSidebar = document.getElementById('cart-sidebar');
+     const cartItemsContainer = document.getElementById('cart-items');
+     const cartBtn = document.getElementById('cart-btn');
+     const closeCartBtn = document.getElementById('close-cart-btn');
+ 
+     // Load cart from localStorage
+     loadCart();
+ 
+     addToCartButtons.forEach(button => {
+         button.addEventListener('click', () => {
+             const productName = document.querySelector('.info h1').innerText;
+             const productPrice = document.querySelector('.info .price').innerText;
+             const productImageSrc = document.querySelector('.image img').src;
+             addToCart(productName, productPrice, productImageSrc);
+             openCartSidebar();
+         });
+     });
+ 
+     cartBtn.addEventListener('click', () => {
+         toggleCartSidebar();
+     });
+ 
+     closeCartBtn.addEventListener('click', () => {
+         closeCartSidebar();
+     });
+ 
+     function addToCart(name, price, imageSrc) {
+         const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+ 
+         const cartItem = {
+             name,
+             price,
+             imageSrc
+         };
+ 
+         cartItems.push(cartItem);
+         localStorage.setItem('cartItems', JSON.stringify(cartItems));
+         renderCartItems();
+     }
+ 
+     function loadCart() {
+         const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+         cartItems.forEach(item => {
+             const cartItemElement = document.createElement('div');
+             cartItemElement.classList.add('cart-item');
+             cartItemElement.innerHTML = `
+                 <img src="${item.imageSrc}" alt="${item.name}">
+                 <div class="cart-item-details">
+                     <h3>${item.name}</h3>
+                     <p>${item.price}</p>
+                 </div>
+                 <button class="remove-btn">&times;</button>
+             `;
+             cartItemsContainer.appendChild(cartItemElement);
+ 
+             cartItemElement.querySelector('.remove-btn').addEventListener('click', () => {
+                 removeFromCart(item);
+             });
+         });
+     }
+ 
+     function renderCartItems() {
+         cartItemsContainer.innerHTML = '';
+         loadCart();
+     }
+ 
+     function removeFromCart(itemToRemove) {
+         let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+         cartItems = cartItems.filter(item => item.name !== itemToRemove.name || item.imageSrc !== itemToRemove.imageSrc);
+         localStorage.setItem('cartItems', JSON.stringify(cartItems));
+         renderCartItems();
+     }
+ 
+     function openCartSidebar() {
+         cartSidebar.classList.add('open');
+     }
+ 
+     function closeCartSidebar() {
+         cartSidebar.classList.remove('open');
+     }
+ 
+     function toggleCartSidebar() {
+         cartSidebar.classList.toggle('open');
+     }
+ });
+ 
+ 
+ 
+     </script>
+        
+</body>
+</html>
